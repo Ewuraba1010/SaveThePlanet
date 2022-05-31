@@ -5,12 +5,18 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    background: #ADDCFF;
+    background-image: url(images/Background.svg);
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 /* Navigation */
 
 .nav-container {
-    background: #ffffff;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
     height: 72px;
 }
@@ -48,6 +54,23 @@ nav ul {
 }
 
 /* Header */
-.header-container {
-    background-image: url(images/Background.svg);
+header a {
+    position: absolute;
+    left: 840px;
+    top: 650px;
+
+    color: #000;
+    font-size: 24px;
+    text-decoration: none;
+
+    background: #D8EEE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: 300ms;
+}
+
+header a:hover {
+    transform: translateY(-5px);
 }
