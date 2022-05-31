@@ -59,9 +59,6 @@ nav ul {
     transform: translateY(-3px);
 }
 
-.nav-items li a.active {
-    color: #ffffff;
-}
 /* Header */
 header a {
     position: absolute;
