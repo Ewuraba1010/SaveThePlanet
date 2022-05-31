@@ -51,8 +51,13 @@ nav ul {
     font-size: 24px;
     font-family: 'Noto Serif KR', sans-serif;
     text-decoration: none;
+    display: inline-block;
+    transition: 300ms;
 }
 
+.nav-items li a:hover {
+    transform: translateY(-3px);
+}
 /* Header */
 header a {
     position: absolute;
