@@ -46,3 +46,8 @@ nav ul {
     font-family: 'Noto Serif KR', sans-serif;
     text-decoration: none;
 }
+
+/* Header */
+.header-container {
+    background-image: url(images/Background.svg);
+}
