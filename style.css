@@ -39,3 +39,10 @@ nav ul {
 .nav-items li:nth-last-of-type(1) {
     margin: 0;
 }
+
+.nav-items li a {
+    color: #000;
+    font-size: 24px;
+    font-family: 'Noto Serif KR', sans-serif;
+    text-decoration: none;
+}
