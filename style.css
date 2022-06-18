@@ -59,6 +59,10 @@ nav ul {
     transform: translateY(-3px);
 }
 
+.nav-items li a:active {
+    background-color: rgba(242, 242, 242, 0.6);
+}
+
 /* Header */
 
 header a {
