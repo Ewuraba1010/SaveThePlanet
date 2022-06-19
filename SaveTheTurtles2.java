@@ -1,8 +1,7 @@
-import processing.core.PApplet;//imported processor
+import processing.core.PApplet; //imported processor
 import processing.core.PImage;
 import java.util.Random;
 import processing.core.PFont;
-import java.awt.*;
 public class SaveTheTurtles2 extends PApplet {
     PImage beach;
     PImage recycle;
@@ -10,13 +9,14 @@ public class SaveTheTurtles2 extends PApplet {
     PImage plastic2;
     PImage plastic3;
     PImage turtle;
+    PImage crab;
     PFont font1;
     PFont font2;
     PFont font3;
     PFont font4;
 
     int turtleX = 10;
-    int turtleY = 200;
+    int turtleY = 210;
 
     public int startTime;
     public int timer;
@@ -35,21 +35,25 @@ public class SaveTheTurtles2 extends PApplet {
     int obstacle3X = random.nextInt(901) + 100;
     int obstacle3Y = random.nextInt(501) + 250;
 
+    int crab1X = 1000;
+    int crab1Y = 475;
+
     boolean collision1 = true;
     boolean collision2 = true;
     boolean collision3 = true;
 
+    boolean hitCrab = true;
+
     boolean gameover = false;
 
     public enum STATE{
-        MENU,
         NEXT,
         OVER,
-        L1,
-        L2,
+        HIT,
+        L3,
     }
 
-    public STATE State = STATE.MENU;
+    public STATE State = STATE.L3;
 
     public static void main(String[] args) {
         PApplet.main("SaveTheTurtles2");
@@ -70,6 +74,8 @@ public class SaveTheTurtles2 extends PApplet {
 
         turtle = loadImage("Images/cuteturtle.png");         //turtle
 
+        crab = loadImage("Images/angryCrab.png");
+
         font1 = createFont("Times New Roman", 30, true);
         font2 = createFont("Times New Roman", 10, true);
         font3 = createFont("Times New Roman", 40, true);
@@ -78,7 +84,7 @@ public class SaveTheTurtles2 extends PApplet {
         startTime = millis();
     }
     public void draw() {
-        if (State == STATE.L1 || State == STATE.L2) {
+        if (State == STATE.L3) {
 
             if (timer % 1000 == 0) {                     //turtle timer -- after each  millisecond, the turtle will move right 1 pixel
                 turtleX = turtleX + 1;
@@ -87,16 +93,49 @@ public class SaveTheTurtles2 extends PApplet {
                 image(recycle, startX, startY);
                 turtle.resize(100, 100);
                 image(turtle, turtleX, turtleY);
+                crab.resize(100,100);
+                image(crab, crab1X, crab1Y);
             }
+
+            if (crab1Y == 475){
+                if (timer % 1000 == 0) {                     //crab timer
+                    crab1X = crab1X - 5;
+                    background(beach);
+                    recycle.resize(70, 70);
+                    image(recycle, startX, startY);
+                    turtle.resize(100, 100);
+                    image(turtle, turtleX, turtleY);
+                    crab.resize(100,100);
+                    image(crab, crab1X, crab1Y);
+                }
+            }
+            else{
+                if (timer % 1000 == 0) {
+                    crab1X = crab1X + 5;
+                    background(beach);
+                    recycle.resize(70, 70);
+                    image(recycle, startX, startY);
+                    turtle.resize(100, 100);
+                    image(turtle, turtleX, turtleY);
+                    crab.resize(100,100);
+                    image(crab, crab1X, crab1Y);
+                }
+            }
+            if (crab1X == 100){
+                crab1Y = 476;
+            }else if(crab1X == 1000){
+                crab1Y = 475;
+            }
+
             if ((collision1 || collision2 || collision3) && turtleX > 1000) {     //Game Over
                 State = STATE.OVER;
-            } else if ((!collision1 && !collision2 && !collision3) && turtleX < 1000) {
+            } else if ((!collision1 && !collision2 && !collision3 && hitCrab) && turtleX < 1000) {
                 State = STATE.NEXT;
             }
 
-            /*if (gameover == true) {
-                exit();
-            }*/
+            if (!hitCrab) {     //Game Over
+                State = STATE.HIT;
+            }
 
             if (collision1 == true) {                                 //if plastic is untouched
                 plastic.resize(90, 90);
@@ -115,29 +154,14 @@ public class SaveTheTurtles2 extends PApplet {
                 image(plastic, obstacle3X, obstacle3Y);
             }
             obstacleInteraction3();
-        }
-        else if(State == STATE.MENU) {
-            background(185, 235, 255);
-            textFont(font1, 80);
-            fill(0, 0, 0);
-            text("Save The Turtles", 270, 100);
 
-            textFont(font2, 35);
-            fill(0, 0, 0);
-            text("Help! Plastic is very dangerous and deadly to marine life. Help clear\n"
-                    + "the beach of the plastic before the timer runs out so that Tony the Turtle\n"
-                    + "can safely swim back to his family!\n\n"
-                    + "How to Play:\n"
-                    + "Use the arrow keys to control Recycling Remy and collect all the\n"
-                    + "plastic pieces off the beach. Beware of the Cranky Crabs!\n"
-                    + "If they hit you, game over. If you fail to collect all the\n"
-                    + "plastic before the timer runs out, game over.\n"
-                    + "Tony and his family are counting on you. Good luck!", 50, 200);
 
-            rect(400,700, 300, 50);
-            textFont(font2, 35);
-            fill(255,255,255);
-            text("Click Enter to Play", 415, 737);
+
+            if (hitCrab == true) {                                 //if crab is untouched
+                crab.resize(100,100);
+                image(crab, crab1X, crab1Y);
+            }
+            crabInteraction();
         }
         else if (State == STATE.NEXT){
             fill(191,191,191);
@@ -171,9 +195,22 @@ public class SaveTheTurtles2 extends PApplet {
             fill(255,255,255);
             text("Click Backspace to Exit", 380, 687);
         }
+        else if (State == STATE.HIT){
+            fill(191,191,191);
+            rect(100,100, 900, 650);
+            textFont(font1, 50);
+            fill(0, 0, 0);
+            text("OH NO!! You got pinched by a crab!!", 170, 400);
+            text("GAME OVER :(", 400, 450);
+
+            rect(370,650, 360, 50);
+            textFont(font2, 35);
+            fill(255,255,255);
+            text("Click Backspace to Exit", 380, 687);
+        }
     }
     public void keyPressed() {                                  //moving recycle bin
-        if (State == STATE.L1) {
+        if (State == STATE.L3) {
             if (keyCode == LEFT) {
                 startX = startX - 10;
             }
@@ -187,15 +224,15 @@ public class SaveTheTurtles2 extends PApplet {
                 startY = startY + 10;
             }
 
-        } else if (State == STATE.MENU) {
-            if (keyCode == ENTER) {
-                State = State.L1;
-            }
         } else if (State == STATE.OVER) {
             if (keyCode == BACKSPACE) {
                 exit();
             }
         } else if (State == STATE.NEXT) {
+            if (keyCode == BACKSPACE) {
+                exit();
+            }
+        } else if(State == STATE.HIT) {
             if (keyCode == BACKSPACE) {
                 exit();
             }
@@ -215,6 +252,12 @@ public class SaveTheTurtles2 extends PApplet {
     public void obstacleInteraction3(){
         if(abs(startX - obstacle3X) < 70 && (abs(startY - obstacle3Y) < 70)){
             collision3 = false;
+        }
+    }
+
+    public void crabInteraction(){        //if crab is touched
+        if(abs(startX - crab1X) < 70 && (abs(startY - crab1Y) < 70)){
+            hitCrab = false;
         }
     }
 }
