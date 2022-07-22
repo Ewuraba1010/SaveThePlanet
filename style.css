@@ -91,6 +91,8 @@ header a:hover {
 
 .game-container {
     position: absolute;
+    background: #C4C4C4;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
     width: 337px;
     height: 544px;
     left: 147px;
