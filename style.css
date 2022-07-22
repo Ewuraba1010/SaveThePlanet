@@ -85,3 +85,14 @@ header a {
 header a:hover {
     transform: translateY(-5px);
 }
+
+
+/* Game Containers */
+
+.game-container {
+    position: absolute;
+    width: 337px;
+    height: 544px;
+    left: 147px;
+    top: 274px;
+}
