@@ -5,6 +5,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    font-size: medium;
     background: #ADDCFF;
     background-image: url(images/Background.svg);
     height: 800px;
@@ -12,6 +13,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+p {
+    font-size: 28px;
+    line-height: 2em;
 }
 
 /* Navigation */
@@ -53,15 +59,16 @@ nav ul {
     text-decoration: none;
     display: inline-block;
     transition: 300ms;
+    background-color: inherit;
 }
 
 .nav-items li a:hover {
     transform: translateY(-3px);
 }
 
-.nav-items li a:active {
+/* .nav-items li a:active {
     background-color: rgba(242, 242, 242, 0.6);
-}
+} */
 
 /* Header */
 
@@ -92,9 +99,51 @@ header a:hover {
 .game-container {
     position: absolute;
     background: #C4C4C4;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
     width: 337px;
     height: 544px;
-    left: 147px;
-    top: 274px;
+    padding-top: 100px;
+    padding-right: 168.5px;
+    /* left: 147px;
+    top: 150px; */
+}
+
+.game-thumbnail {
+    position: absolute;
+    background: #DBDBDB;
+    width: 313px;
+    height: 300px;
+    left: 12px;
+    top: 12px;
+}
+
+.game-text {
+    position: absolute;
+    width: 313px;
+    height: 200px;
+    left: 12px;
+    top:312px;
+    font-size: 14px;
+    font-family: 'Noto Serif KR', sans-serif;
+    line-height: 2em;
+}
+
+.game-container a {
+    position: absolute;
+    left: 130px;
+    top: 475px;
+
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+
+    background: #D8EEE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 0px 20px;
+    display: inline-block;
+    transition: 300ms;
+}
+
+.game-container a:hover {
+    transform: translateY(-5px);
 }

@@ -22,6 +22,13 @@
             font-family: 'Noto Serif KR', sans-serif;
             line-height: 60px;
         }
+        .header-content li {
+            display: inline-block;
+            margin-right: 450px;
+        }
+        .header-content li:nth-last-of-type(1) {
+            margin: 0;
+        }
     </style>
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -59,10 +66,46 @@
         <div class="wrapper">
             <header>   
                 <div class="header-content">
-                    <h2>Games</h2> 
-                    <div class="games-container">
-                        game 1
-                    </div>
+                    <h2>Games</h2>
+
+                    <li>
+                        <div class="game-container">
+                            <div class="game-thumbnail" style="background-image: url(images/stt.jpg);"></div> 
+                            <div class="game-text">
+                                <b>Title:</b> Save the Turtles <br>
+                                <b>Description:</b> This ocean cleanup game is focused on teaching children the dangers of ocean pollution on marine life. Players will help Recycling Remy clean up all the plastic on the beach shore.
+                            </div>       
+                            <a href="">
+                                Play
+                            </a> 
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="game-container">
+                            <div class="game-thumbnail"></div> 
+                            <div class="game-text">
+                                <b>Title:</b> Let's Recycle! <br>
+                                <b>Description:</b> This recycling game is focused on teaching children what can and cannot be recycled in their own homes. Players will help Little Ben clean up different rooms in his house.
+                            </div>       
+                            <a href="">
+                                Play
+                            </a> 
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="game-container">
+                            <div class="game-thumbnail">
+                                <br><br><center>Coming Soon!</center>
+                            </div> 
+                            <div class="game-text">
+                                <b>Title:</b> Save the Polar Bears <br>
+                                <b>Description:</b> This maze game is focused on teaching children the negative effects climate change has on polar bears' habitats. Players will help Posie the Polar Bear navigate through the maze and get back to safety.
+                            </div>        
+                        </div>
+                    </li>
+
                 </div>
             </header>
         </div>
