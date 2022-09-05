@@ -20,6 +20,17 @@ p {
     line-height: 2em;
 }
 
+/* Footer */
+footer {
+    box-shadow: 0 -5px 24px -5px rgba(0, 0, 0, 0.1);
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 2em;
+    font-family: 'Noto Serif KR', sans-serif;
+}
+
+
 /* Navigation */
 
 .nav-container {

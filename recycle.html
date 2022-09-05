@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Recycle</title>
+    <link rel="stylesheet" href="recycle.css" />
+</head>
+<body>
+    <div
+      id="dropBox1"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      droppable="true";
+    >
+      <img id= "target" class="trash" src="images/trash.png"; height=100%; width=100%;>
+    </div>
+
+    <div
+      id="dropBox2"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      droppable="true";
+    >
+      <img id= "target" class="recycle" src="images/recycle.png"; height=100%; width=100%;>
+    </div>
+
+
+
+    <div id="container">
+      <div
+        id="items"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+          <img
+          id="trash"
+          src="images/kitchen/banana.png"
+          draggable="true"
+          ondragstart="drag(event)"
+          height = 100%;
+          width = 100%;
+          style = "top:46vh; left:20vw;"
+          />
+          
+          <img
+          id="recycle"
+          src="images/kitchen/roll.png"
+          draggable="true"
+          ondragstart="drag(event)"
+          height = 100%;
+          width = 100;
+          style = "top:17vh; left:75vw;"
+          />
+
+          <img
+          id="trash"
+          src="images/kitchen/pizza.png"
+          draggable="true"
+          ondragstart="drag(event)"
+          height = 100%;
+          width = 100;
+          style = "top:16vh; left:35vw;"
+          />
+
+          <img
+          id="recycle"
+          src="images/kitchen/milk.png"
+          draggable="true"
+          ondragstart="drag(event)"
+          height = 100%;
+          width = 100;
+          style = "top:42vh; left:58vw;"
+          />
+
+          <img
+          id="recycle"
+          src="images/kitchen/newspaper.png"
+          draggable="true"
+          ondragstart="drag(event)"
+          height = 100%;
+          width = 100%;
+          style = "top:16vh; left:23vw;"
+          />
+
+          <img
+          id="trash"
+          src="images/kitchen/shell.png"
+          draggable="true"
+          ondragstart="drag(event)"
+          height = 100%;
+          width = 100;
+          style = "top:1vh; left:65vw;"
+          />
+      </div>
+    </div>
+
+    <script src="recycle.js"></script>
+</body>
+</html>
